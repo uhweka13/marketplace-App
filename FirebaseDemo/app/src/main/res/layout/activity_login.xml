@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login"
+    android:orientation="vertical"
+    android:background="@android:color/darker_gray">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SIGN IN"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:padding="20dp"
+        android:textColor="@android:color/white"
+        android:textAlignment="center"
+        android:background="@android:color/holo_green_light"/>
+
+    <EditText
+        android:id="@+id/et_login_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email :"
+        android:background="@android:color/holo_blue_light"
+        android:padding="20dp"
+        android:textSize="18sp"
+        android:layout_marginTop="50dp"
+        android:inputType="textEmailAddress"
+        android:textColor="@android:color/white"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        />
+    <EditText
+        android:id="@+id/et_login_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/holo_blue_light"
+        android:padding="20dp"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"/>
+    <Button
+        android:id="@+id/bt_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log in"
+        android:textColor="@android:color/white"
+        android:background="@android:color/holo_blue_bright"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"/>
+    <TextView
+        android:id="@+id/tv_login_yet_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Not yet register? Sign up here"
+        android:textColor="@android:color/white"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="18sp"
+        android:textStyle="italic|bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_login_forgot_click"
+        android:textStyle="italic|bold"
+        android:text="Forgot Password? Click Here"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        />
+
+</LinearLayout>

@@ -1,0 +1,102 @@
+package com.example.firebasedemo
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.os.PersistableBundle
+import android.util.Patterns
+import android.view.ActionMode
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.kaopiz.kprogresshud.KProgressHUD
+import kotlinx.android.synthetic.main.activity_login.*
+
+class Login : AppCompatActivity() {
+    private lateinit var email:String
+    private lateinit var password:String
+    private var mAuth: FirebaseAuth? = null
+    private lateinit var hud: KProgressHUD
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login)
+
+        val register:TextView = findViewById(R.id.tv_login_yet_reg)
+        val password_forgot:TextView = findViewById(R.id.tv_login_forgot_click)
+        val et_email:EditText = findViewById(R.id.et_login_email)
+        val et_password:EditText = findViewById(R.id.et_login_password)
+        val bt_login:Button = findViewById(R.id.bt_login)
+
+        mAuth = FirebaseAuth.getInstance()
+
+        hud = KProgressHUD.create(this)
+            .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+            .setLabel("Please Wait")
+            .setDetailsLabel("Authenticating User")
+            .setCancellable(true)
+            .setAnimationSpeed(2)
+            .setDimAmount(0.5f)
+
+        register.setOnClickListener(View.OnClickListener {
+            val toRegister = Intent(this, Register::class.java)
+            startActivity(toRegister)
+            finish()
+        })
+
+        bt_login.setOnClickListener(View.OnClickListener {
+            email = et_email.text.toString().trim()
+            password = et_password.text.toString().trim()
+
+            if (email.isEmpty()|| !email.contains(".")|| !email.contains("@")) {
+
+                et_email.setError("Incorrect Email")
+            } else if (password.isEmpty()){
+                et_password.setError("Password is Empty")
+            } else {
+                hud.show()
+                mAuth!!.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this) { task ->
+                        hud.dismiss()
+                        if (task.isSuccessful) {
+                            updateUI()
+                        } else {
+                            Toast.makeText(this, "Authentication Failed.",Toast.LENGTH_LONG)
+                        }
+                    }
+            }
+
+        })
+
+        tv_login_forgot_click.setOnClickListener(View.OnClickListener {
+
+            var changePassword = Intent(this, Register::class.java)
+
+            startActivity(changePassword)
+    })
+        tv_login_yet_reg.setOnClickListener(View.OnClickListener {
+            var register = Intent(this, Register::class.java )
+            startActivity(register)
+
+        })
+    }
+
+    private fun updateUI() {
+        val intent = Intent( this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
+        finish()
+    }
+
+}
+
+
+
+
+
+
+
+

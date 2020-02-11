@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+    <item
+        android:orderInCategory="101"
+        android:title="Home" />
+    <item
+        android:orderInCategory="102"
+        android:title="Share" />
+    <item
+        android:orderInCategory="103"
+        android:title="My Profile" />
+    <item
+        android:orderInCategory="104"
+        android:title="All Users" />
+    <item
+        android:orderInCategory="105"
+        android:title="Add Users" />
+    <item
+        android:orderInCategory="106"
+        android:title="Musics" />
+    <item
+        android:orderInCategory="107"
+        android:title="Videos" />
+    <item
+        android:orderInCategory="108"
+        android:title="Community" />
+    <item
+        android:orderInCategory="109"
+        android:title="About Us" />
+</menu>
