@@ -2,15 +2,18 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-
-    <item android:title="Profile"
+    <item android:title="Dashboard"
+        android:id="@+id/nav_dashboard"
+        android:icon="@drawable/ic_dashboard"/>
+    <item android:title="Add Shop"
         android:id="@+id/nav_chats"
-        android:icon="@drawable/ic_person"/>
-    <item android:title="Users"
+        android:icon="@drawable/ic_add_black"
+        app:showAsAction="always"/>
+    <item android:title="Message"
         android:id="@+id/nav_users"
-        android:icon="@drawable/ic_users"/>
-    <item android:title="Settings"
+        android:icon="@drawable/ic_chats"/>
+    <item android:title="LogOut"
         android:id="@+id/nav_groups"
-        android:icon="@drawable/ic_settings"/>
+        android:icon="@drawable/ic_logout"/>
 
 </menu>
